@@ -1,52 +1,29 @@
-# Python Package Template
-✨🍰✨A template repository for Python package projects.
+# Pagehub 
+[![Python version](https://img.shields.io/pypi/pyversions/pagehub.svg?logo=python)](https://pypi.python.org/pypi/pagehub)
+[![PyPI package](https://img.shields.io/pypi/v/pagehub.svg)](https://pypi.python.org/pypi/pagehub)
+[![PyPI download](https://img.shields.io/pypi/dm/pagehub.svg)](https://pypi.python.org/pypi/pagehub)
+[![GitHub](https://img.shields.io/github/license/ZhaoQi99/pagehub)](https://github.com/ZhaoQi99/pagehub/blob/main/LICENSE)
+![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/ZhaoQi99/pagehub)
+
+Archive your web page.
+
+## Requirements
+* Python >= 3.6
+
+## Install
+```shell
+pip install pagehub
+✨🍰✨
+```
+Or you can use `pip install git+https://github.com/ZhaoQi99/PageHub.git
+` install latest version.
 
 ## Usage
-### Initial setup
-```shell
-~$ bash scripts/setup.sh
-Enter package name []: template-package
-Enter package path [template-package]: tempate_pkg
-Enter package description [Python package template description]: 
-Enter package keywords (comma separated) [python]: python,template
-Enter author name [Qi Zhao]: 
-Enter author email [zhaoqi99@outlook.com]: 
-Enter github username [Qi Zhao]: 
+### Quick start
 
-Package information:
-Name: template-package
-Description: Python package template description
-Keywords: python,template
-Github username: Qi Zhao
-Author: Qi Zhao
-Email: zhaoqi99@outlook.com
-
-Confirm changes? [Y/n] 
-Done. Please remember to modify 'install_requires' in 'setup.cfg'.
-```
-
-### Installation
-```shell
-~$ bash scripts/install.sh --dev # Install editable package
-~$ bash scripts/install.sh
-```
-
-### Build
-```shell
-~$ bash scripts/build.sh # Build package distribution
-```
-
-### Publish
-```shell
-~$ bash scripts/publish.sh --dev # Upload to test PyPI
-~$ bash scripts/publish.sh # Upload to PyPI
-```
 
 ## License
-[GNU General Public License v3.0](https://github.com/ZhaoQi99/python-package-template/blob/main/LICENSE)
+[GNU General Public License v3.0](https://github.com/ZhaoQi99/PageHub/blob/main/LICENSE)
 
 ## Author
 * Qi Zhao([zhaoqi99@outlook.com](mailto:zhaoqi99@outlook.com))
-
-## References
-* [Installing Packages - Python Packaging User Guide](https://packaging.python.org/en/latest/tutorials/installing-packages/)
