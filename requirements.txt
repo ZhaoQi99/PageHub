@@ -4,6 +4,7 @@ annotated-types==0.7.0
     # via pydantic
 asgiref==3.8.1
     # via django
+click==8.1.7
 django==5.0.7
     # via django-ninja
 django-ninja==1.2.2
