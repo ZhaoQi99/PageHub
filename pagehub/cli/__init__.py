@@ -15,12 +15,12 @@ VERSION = rf"""
 
 
 @click.group()
-@click.version_option(__version__, "-v", "--version", message=VERSION)
+@click.version_option(__version__, "-V", "--version", message=VERSION)
 @click.help_option("-h", "--help")
 def main():
     pass
 
 
-from .export import export
+from .export import export_command
 
-main.add_command(export)
+main.add_command(export_command)
