@@ -74,5 +74,9 @@ class RequestsBaseClient(BaseClient):
         )
 
     def parse_response(self, response: requests.Response):
-        response.raise_for_status()
+        response.raise_for_status
+        if response.status_code != requests.codes.ok:
+            raise requests.HTTPError(
+                f"{response.status_code} {response.reason} for {response.url} {response.text}"
+            )
         return response.json()

@@ -2,7 +2,7 @@ import mimetypes
 import os
 from pathlib import Path
 
-from lib.base.client import RequestsBaseClient
+from pagehub.lib.base.client import RequestsBaseClient
 
 API_BASE_URL = "https://api.notion.com/v1/"
 UNOFFICIAL_BASE_URL = "https://www.notion.so/api/v3/"
@@ -35,7 +35,7 @@ class NotionClient(RequestsBaseClient):
         payload = {
             "children": children,
         }
-        return self.post(f"blocks/{page_id}/children", body=payload)
+        return self.patch(f"blocks/{page_id}/children", body=payload)
 
     def update_block(self, block_id, payload):
         return self.patch(f"blocks/{block_id}", body=payload)
