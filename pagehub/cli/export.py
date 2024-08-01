@@ -42,7 +42,7 @@ SUCCESS_ANSI = click.style("successfully", fg="green")
 @click.pass_context
 def export_command(ctx, url, format, output, name):
     """Export page to the output file"""
-    path_lst = export.export(
+    path_lst, _ = export.export(
         url, Path(output).absolute() / name, [ExportFormat(i) for i in format]
     )
     click.echo(f"Exported {SUCCESS_ANSI}:")

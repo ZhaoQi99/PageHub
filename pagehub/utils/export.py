@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, TypeVar
+from typing import TypeVar
 
 from playwright.sync_api import Page, sync_playwright
 
@@ -27,7 +27,7 @@ T = TypeVar("T", bound=ExportFormat)
 def export(
     url: str,
     path: Path,
-    formats: List[T],
+    formats: list[T],
     headless: bool = True,
     proxy: str | None = None,
     **browser_decls,
@@ -40,7 +40,7 @@ def export(
         headless (bool, optional): Whether to use headless mode. Defaults to True.
         browser_decls (Dict, optional): The browser declaration. Defaults to {}.
     Return:
-        list[str]: A list of exported file path
+        (list[str], dict[str]): The path list and the page information
     """
     if proxy:
         browser_decls["proxy"] = {"server": proxy}
@@ -51,6 +51,9 @@ def export(
         page = context.new_page()
         page.goto(url)
 
+        info = {
+            "title": page.title(),
+        }
         # Wait img
         locators = page.locator("img").all()
         for locator in locators:
@@ -71,7 +74,7 @@ def export(
             path_lst.append(_export_mhtml(page, path))
 
         browser.close()
-        return path_lst
+        return (path_lst, info)
 
 
 if __name__ == "__main__":
