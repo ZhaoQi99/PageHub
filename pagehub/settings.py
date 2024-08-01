@@ -13,7 +13,7 @@ class Setting:
 
     def __getattr__(self, attr):
         if attr not in self.defaults:
-            raise AttributeError("Invalid API setting: '%s'" % attr)
+            raise AttributeError("Invalid pagehub setting: '%s'" % attr)
         try:
             val = self.user_settings[attr]
         except KeyError:
