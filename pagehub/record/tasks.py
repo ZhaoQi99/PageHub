@@ -5,7 +5,7 @@ from pagehub.constants import SUPPORT_FORMATS
 from pagehub.enums import ExportFormat
 from pagehub.settings import pagehub_settings
 from pagehub.utils.datetime_utils import get_now_str
-from pagehub.utils.export import export
+from pagehub.utils.export_utils import export
 
 STORAGE = pagehub_settings.STORAGE
 

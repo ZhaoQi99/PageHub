@@ -5,7 +5,7 @@ import click
 from pagehub.cli.types import MultipleChoice
 from pagehub.constants import SUPPORT_FORMATS
 from pagehub.enums import ExportFormat
-from pagehub.utils import export
+from pagehub.utils import export_utils
 
 SUCCESS_ANSI = click.style("successfully", fg="green")
 
@@ -42,7 +42,7 @@ SUCCESS_ANSI = click.style("successfully", fg="green")
 @click.pass_context
 def export_command(ctx, url, format, output, name):
     """Export page to the output file"""
-    path_lst, _ = export.export(
+    path_lst, _ = export_utils.export(
         url, Path(output).absolute() / name, [ExportFormat(i) for i in format]
     )
     click.echo(f"Exported {SUCCESS_ANSI}:")

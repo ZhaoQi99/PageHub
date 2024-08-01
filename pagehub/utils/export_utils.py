@@ -82,5 +82,4 @@ if __name__ == "__main__":
         "https://www.baidu.com",
         Path("").absolute() / "test",
         [ExportFormat.PDF],
-        proxy='socks5://127.0.0.1:7890"',
     )
