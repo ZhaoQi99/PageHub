@@ -40,7 +40,7 @@ def export(
         headless (bool, optional): Whether to use headless mode. Defaults to True.
         browser_decls (Dict, optional): The browser declaration. Defaults to {}.
     Return:
-        (list[str], dict[str]): The path list and the page information
+        (list[dict[str]], dict[str]): The path list and the page information
     """
     if proxy:
         browser_decls["proxy"] = {"server": proxy}
@@ -67,11 +67,21 @@ def export(
         path_lst = list()
         # pdf
         if ExportFormat.PDF in formats:
-            path_lst.append(_export_pdf(page, path))
+            path_lst.append(
+                {
+                    "format": ExportFormat.PDF.value,
+                    "path": _export_pdf(page, path),
+                }
+            )
 
         # mhtml
         if ExportFormat.MHTML in formats:
-            path_lst.append(_export_mhtml(page, path))
+            path_lst.append(
+                {
+                    "format": ExportFormat.MHTML.value,
+                    "path": _export_mhtml(page, path),
+                }
+            )
 
         browser.close()
         return (path_lst, info)

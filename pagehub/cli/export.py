@@ -47,4 +47,4 @@ def export_command(ctx, url, format, output, name):
     )
     click.echo(f"Exported {SUCCESS_ANSI}:")
     for path in path_lst:
-        click.echo(f"  - {path}")
+        click.echo(f"  - {path['format']}: {path['path']}")
