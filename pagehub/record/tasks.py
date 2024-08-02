@@ -19,10 +19,10 @@ def export_task(snapshot_id: int, url: str, format: Optional[list[str]] = None):
     directory = base_directory / str(snapshot.uuid) / get_now_str()
 
     path_lst, info = export(url, directory, [ExportFormat(i) for i in format])
-    for info in path_lst:
-        path = str(Path(info["path"]).relative_to(base_directory))
+    for item in path_lst:
+        path = str(Path(item["path"]).relative_to(base_directory))
         SnapshotResult.objects.create(
-            snapshot=snapshot, format=info["format"], path=path
+            snapshot=snapshot, format=item["format"], path=path
         )
     snapshot.title = info.get("title", "")
     snapshot.save(update_fields=["title"])
