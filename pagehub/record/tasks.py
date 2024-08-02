@@ -10,15 +10,21 @@ from pagehub.utils.export_utils import export
 STORAGE = pagehub_settings.STORAGE
 
 
-def export_task(url: str, formats: Optional[list[str]] = None):
-    formats = None or SUPPORT_FORMATS
+def export_task(url: str, format: Optional[list[str]] = None):
+    format = None or SUPPORT_FORMATS
     directory = Path(STORAGE["path"]).absolute() / get_now_str()
-    path_lst, info = export(url, directory, [ExportFormat(i) for i in formats])
+    path_lst, info = export(url, directory, [ExportFormat(i) for i in format])
     return path_lst, info
 
 
-def notion_push_task(url: str, title: str = "", formats: Optional[list[str]] = None):
-    path_lst, info = export_task(url, formats)
+def notion_push_task(
+    url: str,
+    api_token: str,
+    token_v2: Optional[str] = None,
+    title: str = "",
+    format: Optional[list[str]] = None,
+):
+    path_lst, info = export_task(url, format)
     title = title or info["title"]
     # TODO
 

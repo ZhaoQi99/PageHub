@@ -1,5 +1,4 @@
 import click
-from click import ParamType
 
 
 class MultipleChoice(click.Choice):
@@ -10,6 +9,6 @@ class MultipleChoice(click.Choice):
             normed_values.append(super().convert(v, param, ctx))
         return normed_values
 
-    def get_metavar(self, param: ParamType) -> str:
+    def get_metavar(self, param: click.ParamType) -> str:
         choices_str = ",".join(self.choices)
         return f"[{choices_str}]"
