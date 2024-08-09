@@ -2,10 +2,11 @@ from pathlib import Path
 
 from pagehub.lib.notion import block, property
 from pagehub.lib.notion.client import NotionClient, NotionUnofficialClient
+from pagehub.settings import pagehub_settings
 
-TITLE_KEY = "title"
-LINK_KEY = "Link"
-MHTML_KEY = "yuyu"
+TITLE_KEY = pagehub_settings.TITLE_PROPERTY
+LINK_KEY = pagehub_settings.LINK_PROPERTY
+MHTML_KEY = pagehub_settings.MHTML_PROPERTY
 
 
 def create_page(database_id: str, token: str, title: str, link: str) -> str:

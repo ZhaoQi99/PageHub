@@ -3,6 +3,9 @@ DEFAULTS = {
         "type": "local",
         "path": "./storage",
     }
+    "TITLE_PROPERTY": "title",
+    "LINK_PROPERTY": "link",
+    "MHTML_PROPERTY": "mhtml",
 }
 
 
