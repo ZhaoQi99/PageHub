@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from django.utils import timezone
+
 
 def get_now_str():
-    return datetime.now().astimezone().strftime("%Y%m%d%H%M%S")
+    return timezone.now().astimezone().strftime("%Y%m%d%H%M%S")

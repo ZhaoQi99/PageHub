@@ -25,7 +25,9 @@ class SnapshotResult(BaseModelWithUUID):
         (ExportFormat.PDF.value, "PDF"),
         (ExportFormat.MHTML.value, "MHTML文件"),
     )
-    snapshot = models.ForeignKey(Snapshot, on_delete=models.CASCADE)
+    snapshot = models.ForeignKey(
+        Snapshot, on_delete=models.CASCADE, related_name="results"
+    )
     format = models.CharField(max_length=10, choices=FORMAT_CHOICES)
     path = models.FileField()
 

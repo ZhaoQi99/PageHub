@@ -16,6 +16,31 @@ class RecordFilters(Schema):
     )
 
 
+class NotionFilters(RecordFilters):
+    api_token: str
+    database_id: str
+    token_v2: Optional[str] = None
+    title: Optional[str] = "-"
+
+
+@router.get("/notion/{path:url}")
+def notion_record(request, url: str, filters: Query[NotionFilters]):
+    snapshot = Snapshot.objects.create(url=url)
+    print(filters.format, type(filters.format))
+
+    runner = BackgroundThreadRunner()
+    runner.add_task(export_task, snapshot.pk, url, format=filters.format)
+    runner.add_task(
+        notion_push_task, snapshot.pk, url, **filters.model_dump(mode="json")
+    )
+    runner.start()
+    return {
+        "url": url,
+        "uuid": snapshot.uuid,
+        "params": filters.model_dump(mode="json"),
+    }
+
+
 @router.get("/{path:url}")
 def record(request, url: str, filters: Query[RecordFilters]):
     snapshot = Snapshot.objects.create(url=url)
@@ -27,18 +52,3 @@ def record(request, url: str, filters: Query[RecordFilters]):
         "uuid": snapshot.uuid,
         "params": filters.model_dump(mode="json"),
     }
-
-
-class NotionFilters(RecordFilters):
-    api_token: str
-    token_v2: Optional[str] = None
-    title: Optional[str] = "-"
-
-
-@router.get("/notion/{path:url}")
-def notion_record(request, url: str, filters: Query[NotionFilters]):
-    runner = BackgroundThreadRunner()
-    runner.add_task(export_task, url, {})
-    runner.add_task(notion_push_task, url, **filters.model_dump(mode="json"))
-    runner.start()
-    return {"url": url}
