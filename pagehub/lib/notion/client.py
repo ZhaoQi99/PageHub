@@ -52,7 +52,11 @@ class NotionUnofficialClient(RequestsBaseClient):
     def __init__(self, token_v2, space_id=None, base_url=None, **kwargs) -> None:
         super().__init__(base_url=base_url or UNOFFICIAL_BASE_URL, **kwargs)
         self.token_v2 = token_v2 or os.getenv("NOTION_TOKEN_V2")
-        self.space_id = space_id
+        self.space_id = space_id or self._get_space_info().get("spaceId")
+
+    def _get_space_info(self):
+        records = self.post("loadUserContent", {})["recordMap"]
+        return list(records["space_view"].values())[0]
 
     def build_headers(self):
         return {
@@ -88,3 +92,9 @@ class NotionUnofficialClient(RequestsBaseClient):
             files={"file": file_path.open("rb")},
         )
         return data["url"]
+
+
+if __name__ == "__main__":
+    import os
+    client = NotionUnofficialClient(token_v2=os.getenv("NOTION_TOKEN_V2"))
+    print(client.space_id)
