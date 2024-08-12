@@ -19,6 +19,12 @@ class Snapshot(BaseModelWithUUID):
         verbose_name_plural = verbose_name
         db_table = "snapshot"
 
+    def __str__(self):
+        return self.title
+
+    def __repr___(self):
+        return "<Snapshot: {}|{}>".format(self.title, self.uuid)
+
 
 class SnapshotResult(BaseModelWithUUID):
     FORMAT_CHOICES = (
@@ -36,3 +42,9 @@ class SnapshotResult(BaseModelWithUUID):
         verbose_name = "快照结果"
         verbose_name_plural = verbose_name
         db_table = "snapshot_result"
+
+    def __str__(self):
+        return str(self.path)
+
+    def __repr___(self):
+        return "<SnapshotResult: {} |{}>".format(self.snapshot.title, self.uuid)
