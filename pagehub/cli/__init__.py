@@ -22,5 +22,7 @@ def main():
 
 
 from .export import export_command
+from .server import server_command
 
 main.add_command(export_command)
+main.add_command(server_command)

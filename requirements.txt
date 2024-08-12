@@ -9,15 +9,22 @@ certifi==2024.7.4
 charset-normalizer==3.3.2
     # via requests
 click==8.1.7
-    # via pagehub
 django==5.0.7
-    # via
-    #   django-ninja
-    #   pagehub
+    # via django-ninja
 django-ninja==1.2.2
-    # via pagehub
 greenlet==3.0.3
     # via playwright
+h11==0.14.0
+    # via
+    #   hypercorn
+    #   wsproto
+h2==4.1.0
+    # via hypercorn
+hpack==4.0.0
+    # via h2
+hypercorn==0.17.3
+hyperframe==6.0.1
+    # via h2
 idna==3.7
     # via requests
 iniconfig==2.0.0
@@ -29,6 +36,8 @@ playwright==1.45.0
     # via pytest-playwright
 pluggy==1.5.0
     # via pytest
+priority==2.0.0
+    # via hypercorn
 pydantic==2.8.2
     # via django-ninja
 pydantic-core==2.20.1
@@ -58,3 +67,5 @@ typing-extensions==4.12.2
 urllib3==2.2.2
     # via requests
 uv==0.2.26
+wsproto==1.2.0
+    # via hypercorn
