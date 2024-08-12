@@ -97,6 +97,8 @@ Options:
 ```
 
 ## Configuration
+Pagehub will read the configuration from `config.py` automatically.
+
 ### STORAGE
 * type: storage type. Currently supported values are "local".
 * path: path of storage.This is only used when type is set to "local".
