@@ -26,7 +26,6 @@ class NotionFilters(RecordFilters):
 @router.get("/notion/{path:url}")
 def notion_record(request, url: str, filters: Query[NotionFilters]):
     snapshot = Snapshot.objects.create(url=url)
-    print(filters.format, type(filters.format))
 
     runner = BackgroundThreadRunner()
     runner.add_task(export_task, snapshot.pk, url, format=filters.format)

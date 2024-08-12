@@ -34,6 +34,8 @@ def export_task(snapshot_id: int, url: str, format: list[str]):
 
 def notion_push_task(
     snapshot_id: int,
+    url: str,
+    *,
     api_token: str,
     database_id: str,
     token_v2: Optional[str] = None,
