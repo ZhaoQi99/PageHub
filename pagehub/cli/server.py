@@ -15,10 +15,10 @@ from pagehub.settings import pagehub_settings
     "--bind",
     "bind",
     show_default=True,
-    default=pagehub_settings.SERVER["bind"],
+    default=pagehub_settings.SERVER_BIND,
     help="The TCP host/address to bind to.",
 )
 def server_command(*args, **kwargs):
     """Run PageHub HTTP server"""
-    config = Config.from_mapping(pagehub_settings.SERVER, **kwargs)
+    config = Config.from_mapping({"bind": pagehub_settings.SERVER_BIND}, **kwargs)
     asyncio.run(serve(application, config))

@@ -11,16 +11,115 @@ Archive your web page.
 * Python >= 3.6
 
 ## Install
+<details open>
+<summary><img height="15" src="https://www.python.org/favicon.ico"></img> pip</summary>
+
 ```shell
 pip install pagehub
 ✨🍰✨
 ```
 Or you can use `pip install git+https://github.com/ZhaoQi99/PageHub.git
 ` install latest version.
+</details>
 
-## Usage
-### Quick start
+<details>
+<summary><img height="15" src="https://cdn.simpleicons.org/docker/338FED?viewbox=auto" /> docker</summary>
+Todo
+</details>
 
+## Quick Start
+### HTTP API
+1. Init PageHub: `pagehub init`
+2. Start HTTP Server: `pagehub server`
+    > `nohup pagehub server &> server.log`
+3. Examples:
+```shell
+~$ curl http://127.0.0.1:8001/api/record/https://www.baidu.com/?format=MHTML&format=PDF -H 'Authorization: <API_TOKEN>'
+~$ curl http://127.0.0.1:8001/api/record/notion/https://www.baidu.com/?format=MHTML&format=PDF&api_token=api_token&database_id=1&token_v2=token_v2&title=test -H 'Authorization: <API_TOKEN>'
+```
+
+### CLI 
+```shell
+pagehub export https://www.baidu.com -o . -f MHTML,PDF
+```
+
+## HTTP Usage
+### Authorization
+Using the Authorization header, format is: `Authorization: <API_TOKEN>`
+
+### Record API
+* GET `api/record/{url}?format=MHTML&format=PDF`
+#### Query Params
+
+| Parameter | Type   | Required | Description                                           |
+| --------- | ------ | -------- | ----------------------------------------------------- |
+| format    | string | No       | Storage format, can be MHTML or PDF, defaults to all. |
+
+### Notion Push API
+* GET `api/record/notion/{url}?format=MHTML&format=PDF&api_token=<NOTION_API_TOKEN>&database_id=<NOTION_DATABASE_ID>&token_v2=<NOTION_TOKEN_V2>&title=test`
+
+#### Query Params
+
+| Parameter    | Type   | Required | Description                                                                                    |
+| ------------ | ------ | -------- | ---------------------------------------------------------------------------------------------- |
+| format       | string | No       | Storage format, can be MHTML or PDF, defaults to all.                                          |
+| api_token*   | string | Yes      | Notion API Token                                                                               |
+| database_id* | string | Yes      | Notion Database ID                                                                             |
+| title        | string | No       | Title stored in Notion.                                                                        |
+| token_v2     | string | No       | Obtained from Browser->Cookies->token_v2.To store files in Notion, this parameter is required. |
+### 
+
+## CLI Usage
+### Export
+```shell
+~$ pagehub export -h
+Usage: pagehub export [OPTIONS] URL
+
+  Export page to the output file
+
+Options:
+  -f, --format [MHTML,PDF]  Format which you want to export  [required]
+  -o, --output DIRECTORY    Output directory of the file  [required]
+  -n, --name TEXT           Name of the exported file  [default: exported]
+  -h, --help                Show this message and exit.
+```
+### Server
+```shell
+~$ pagehub init
+~$ pagehub server -h
+Usage: pagehub server [OPTIONS]
+
+  Run PageHub HTTP server
+
+Options:
+  -h, --help       Show this message and exit.
+  -b, --bind TEXT  The TCP host/address to bind to.  [default: 0.0.0.0:8001]
+```
+
+## Configuration
+### STORAGE
+* type: storage type. Currently supported values are "local".
+* path: path of storage.This is only used when type is set to "local".
+
+### SERVER_BIND
+The TCP host/address to bind to.
+
+Default: `0.0.0.0:8001`
+
+### TITLE_PROPERTY
+The property name in Notion to use for the title of a page.
+
+Default: `title`
+
+### LINK_PROPERTY
+The property name in Notion to use for the link of a page.
+
+Default: `link`
+
+### MHTML_PROPERTY
+The property name in Notion to use for the MHTML file of a page.
+
+Default: `mhtml`
 
 ## License
 [GNU General Public License v3.0](https://github.com/ZhaoQi99/PageHub/blob/main/LICENSE)

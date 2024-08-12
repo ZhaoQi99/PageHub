@@ -6,9 +6,7 @@ DEFAULTS = {
     "TITLE_PROPERTY": "title",
     "LINK_PROPERTY": "link",
     "MHTML_PROPERTY": "mhtml",
-    "SERVER": {
-        "bind": "0.0.0.0:8001",
-    },
+    "SERVER_BIND": "0.0.0.0:8001",
 }
 
 
