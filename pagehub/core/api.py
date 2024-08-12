@@ -1,7 +1,8 @@
-from authorization.models import APIToken
 from ninja import NinjaAPI, errors
 from ninja.security import APIKeyHeader
-from record.api import router as record_router
+
+from pagehub.authorization.models import APIToken
+from pagehub.record.api import router as record_router
 
 
 class APIKey(APIKeyHeader):
