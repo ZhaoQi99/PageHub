@@ -20,7 +20,7 @@ class NotionFilters(RecordFilters):
     api_token: str
     database_id: str
     token_v2: Optional[str] = None
-    title: Optional[str] = "-"
+    title: Optional[str] = ""
 
 
 @router.get("/notion/{path:url}")

@@ -66,7 +66,7 @@ class RequestsBaseClient(BaseClient):
         return requests.request(
             method,
             url,
-            timeout=self.timeout,
+            timeout=kwargs.pop("timeout", self.timeout),
             headers=headers,
             params=query,
             json=body,

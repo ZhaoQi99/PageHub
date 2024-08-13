@@ -51,6 +51,7 @@ def export(
         page = context.new_page()
         page.goto(url)
 
+        page.wait_for_load_state("networkidle")
         info = {
             "title": page.title(),
         }

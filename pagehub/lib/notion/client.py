@@ -90,6 +90,7 @@ class NotionUnofficialClient(RequestsBaseClient):
             data=data["fields"],
             headers={header["name"]: header["value"] for header in data["postHeaders"]},
             files={"file": file_path.open("rb")},
+            timeout=10,
         )
         return data["url"]
 
