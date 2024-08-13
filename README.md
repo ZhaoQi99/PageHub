@@ -8,7 +8,7 @@
 Archive your web page.
 
 ## Requirements
-* Python >= 3.6
+* Python >= 3.8
 
 ## Install
 <details open>
@@ -24,7 +24,11 @@ Or you can use `pip install git+https://github.com/ZhaoQi99/PageHub.git
 
 <details>
 <summary><img height="15" src="https://cdn.simpleicons.org/docker/338FED?viewbox=auto" /> docker</summary>
-Todo
+
+```shell
+docker run -d --name pagehub -p 8001:8001 zhaoqi99/pagehub
+```
+
 </details>
 
 ## Quick Start
