@@ -31,7 +31,7 @@ Todo
 ### HTTP API
 1. Init PageHub: `pagehub init`
 2. Start HTTP Server: `pagehub server`
-    > `nohup pagehub server &> server.log`
+    > `nohup pagehub server >> server.log 2>&1 &`
 3. Examples:
 ```shell
 ~$ curl http://127.0.0.1:8001/api/record/https://www.baidu.com/?format=MHTML&format=PDF -H 'Authorization: <API_TOKEN>'
@@ -57,6 +57,16 @@ Using the Authorization header, format is: `Authorization: <API_TOKEN>`
 
 ### Notion Push API
 * GET `api/record/notion/{url}?format=MHTML&format=PDF&api_token=<NOTION_API_TOKEN>&database_id=<NOTION_DATABASE_ID>&token_v2=<NOTION_TOKEN_V2>&title=test`
+* [Notion API Token](https://www.notion.so/profile/integrations)
+* Notion Token V2: F12 -> Application -> Cookies -> token_v2
+* Database ID: https://www.notion.so/{USERNAME}/{DATABASE_ID}
+* Connection with: Notion ->Top right corner -> More -> Connections -> Connect to -> Your Integration
+
+### Automations
+<a href="https://www.icloud.com/shortcuts/2917f0c4c8a94654978d6b70cb5d84c0">
+  <img src="https://help.apple.com/assets/645D5D228BE0233D28263F4B/645D5D258BE0233D28263F5A/zh_CN/d230a25cb974f8908871af04caad89a1.png" height="50" alt="IOS Shortcut" />
+</a>
+
 
 #### Query Params
 
@@ -67,7 +77,6 @@ Using the Authorization header, format is: `Authorization: <API_TOKEN>`
 | database_id* | string | Yes      | Notion Database ID                                                                             |
 | title        | string | No       | Title stored in Notion.                                                                        |
 | token_v2     | string | No       | Obtained from Browser->Cookies->token_v2.To store files in Notion, this parameter is required. |
-### 
 
 ## CLI Usage
 ### Export

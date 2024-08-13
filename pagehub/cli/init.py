@@ -33,6 +33,15 @@ def init_command(*args, **kwargs):
 
     click.echo(
         """
+{hint} To using PageHub, Please install dependencies with the following command: 
+    playwright install # browsers 
+    playwright install-deps # dependencies to run browsers""".format(
+            hint=click.style("Hint:", fg="magenta")
+        )
+    )
+
+    click.echo(
+        """
 {hint} To start PageHub, run: 
     pagehub server # then visit http://127.0.0.1:8000
         """.format(
