@@ -10,7 +10,7 @@ RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ADD requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-RUN playwright install chromium --with-deps
+RUN playwright install chromium --with-deps &&  rm -rf /root/.cache
 
 ADD . .
 RUN pip install .
