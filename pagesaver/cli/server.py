@@ -4,8 +4,8 @@ import click
 from hypercorn.asyncio import serve
 from hypercorn.config import Config
 
-from pagehub.core.asgi import application
-from pagehub.settings import pagehub_settings
+from pagesaver.core.asgi import application
+from pagesaver.settings import pagesaver_settings
 
 
 @click.command("server")
@@ -15,10 +15,10 @@ from pagehub.settings import pagehub_settings
     "--bind",
     "bind",
     show_default=True,
-    default=pagehub_settings.SERVER_BIND,
+    default=pagesaver_settings.SERVER_BIND,
     help="The TCP host/address to bind to.",
 )
 def server_command(*args, **kwargs):
-    """Run PageHub HTTP server"""
-    config = Config.from_mapping({"bind": pagehub_settings.SERVER_BIND}, **kwargs)
+    """Run PageSaver HTTP server"""
+    config = Config.from_mapping({"bind": pagesaver_settings.SERVER_BIND}, **kwargs)
     asyncio.run(serve(application, config))

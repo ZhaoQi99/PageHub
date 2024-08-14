@@ -3,7 +3,7 @@ from typing import TypeVar
 
 from playwright.sync_api import Page, sync_playwright
 
-from pagehub.enums import ExportFormat
+from pagesaver.enums import ExportFormat
 
 
 def _export_pdf(page: Page, path: Path) -> str:

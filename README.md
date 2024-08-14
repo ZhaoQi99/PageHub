@@ -1,9 +1,9 @@
-# Pagehub 
-[![Python version](https://img.shields.io/pypi/pyversions/pagehub.svg?logo=python)](https://pypi.python.org/pypi/pagehub)
-[![PyPI package](https://img.shields.io/pypi/v/pagehub.svg)](https://pypi.python.org/pypi/pagehub)
-[![PyPI download](https://img.shields.io/pypi/dm/pagehub.svg)](https://pypi.python.org/pypi/pagehub)
-[![GitHub](https://img.shields.io/github/license/ZhaoQi99/pagehub)](https://github.com/ZhaoQi99/pagehub/blob/main/LICENSE)
-![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/ZhaoQi99/pagehub)
+# PageSaver 
+[![Python version](https://img.shields.io/pypi/pyversions/pagesaver.svg?logo=python)](https://pypi.python.org/pypi/pagesaver)
+[![PyPI package](https://img.shields.io/pypi/v/pagesaver.svg)](https://pypi.python.org/pypi/pagesaver)
+[![PyPI download](https://img.shields.io/pypi/dm/pagesaver.svg)](https://pypi.python.org/pypi/pagesaver)
+[![GitHub](https://img.shields.io/github/license/ZhaoQi99/pagesaver)](https://github.com/ZhaoQi99/pagesaver/blob/main/LICENSE)
+![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/ZhaoQi99/pagesaver)
 
 Archive your web page.
 
@@ -15,10 +15,10 @@ Archive your web page.
 <summary><img height="15" src="https://www.python.org/favicon.ico"></img> pip</summary>
 
 ```shell
-pip install pagehub
+pip install pagesaver
 ✨🍰✨
 ```
-Or you can use `pip install git+https://github.com/ZhaoQi99/PageHub.git
+Or you can use `pip install git+https://github.com/ZhaoQi99/PageSaver.git
 ` install latest version.
 </details>
 
@@ -26,16 +26,16 @@ Or you can use `pip install git+https://github.com/ZhaoQi99/PageHub.git
 <summary><img height="15" src="https://cdn.simpleicons.org/docker/338FED?viewbox=auto" /> docker</summary>
 
 ```shell
-docker run -d --name pagehub -p 8001:8001 zhaoqi99/pagehub
+docker run -d --name pagesaver -p 8001:8001 zhaoqi99/pagesaver
 ```
 
 </details>
 
 ## Quick Start
 ### HTTP API
-1. Init PageHub: `pagehub init`
-2. Start HTTP Server: `pagehub server`
-    > `nohup pagehub server >> server.log 2>&1 &`
+1. Init PageSaver: `pagesaver init`
+2. Start HTTP Server: `pagesaver server`
+    > `nohup pagesaver server >> server.log 2>&1 &`
 3. Examples:
 ```shell
 ~$ curl http://127.0.0.1:8001/api/record/https://www.baidu.com/?format=MHTML&format=PDF -H 'Authorization: <API_TOKEN>'
@@ -44,7 +44,7 @@ docker run -d --name pagehub -p 8001:8001 zhaoqi99/pagehub
 
 ### CLI 
 ```shell
-pagehub export https://www.baidu.com -o . -f MHTML,PDF
+pagesaver export https://www.baidu.com -o . -f MHTML,PDF
 ```
 
 ## HTTP Usage
@@ -85,8 +85,8 @@ Using the Authorization header, format is: `Authorization: <API_TOKEN>`
 ## CLI Usage
 ### Export
 ```shell
-~$ pagehub export -h
-Usage: pagehub export [OPTIONS] URL
+~$ pagesaver export -h
+Usage: pagesaver export [OPTIONS] URL
 
   Export page to the output file
 
@@ -98,11 +98,11 @@ Options:
 ```
 ### Server
 ```shell
-~$ pagehub init
-~$ pagehub server -h
-Usage: pagehub server [OPTIONS]
+~$ pagesaver init
+~$ pagesaver server -h
+Usage: pagesaver server [OPTIONS]
 
-  Run PageHub HTTP server
+  Run PageSaver HTTP server
 
 Options:
   -h, --help       Show this message and exit.
@@ -110,7 +110,7 @@ Options:
 ```
 
 ## Configuration
-Pagehub will read the configuration from `config.py` automatically.
+PageSaver will read the configuration from `config.py` automatically.
 
 ### STORAGE
 * type: storage type. Currently supported values are "local".
@@ -137,7 +137,7 @@ The property name in Notion to use for the MHTML file of a page.
 Default: `mhtml`
 
 ## License
-[GNU General Public License v3.0](https://github.com/ZhaoQi99/PageHub/blob/main/LICENSE)
+[GNU General Public License v3.0](https://github.com/ZhaoQi99/PageSaver/blob/main/LICENSE)
 
 ## Author
 * Qi Zhao([zhaoqi99@outlook.com](mailto:zhaoqi99@outlook.com))

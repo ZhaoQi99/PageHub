@@ -2,8 +2,8 @@ from functools import cached_property
 
 from django.db import models
 
-from pagehub.enums import ExportFormat
-from pagehub.lib.base.models import BaseModelWithUUID
+from pagesaver.enums import ExportFormat
+from pagesaver.lib.base.models import BaseModelWithUUID
 
 
 class Snapshot(BaseModelWithUUID):

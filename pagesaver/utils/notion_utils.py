@@ -1,12 +1,12 @@
 from pathlib import Path
 
-from pagehub.lib.notion import block, property
-from pagehub.lib.notion.client import NotionClient, NotionUnofficialClient
-from pagehub.settings import pagehub_settings
+from pagesaver.lib.notion import block, property
+from pagesaver.lib.notion.client import NotionClient, NotionUnofficialClient
+from pagesaver.settings import pagesaver_settings
 
-TITLE_KEY = pagehub_settings.TITLE_PROPERTY
-LINK_KEY = pagehub_settings.LINK_PROPERTY
-MHTML_KEY = pagehub_settings.MHTML_PROPERTY
+TITLE_KEY = pagesaver_settings.TITLE_PROPERTY
+LINK_KEY = pagesaver_settings.LINK_PROPERTY
+MHTML_KEY = pagesaver_settings.MHTML_PROPERTY
 
 
 def create_page(database_id: str, token: str, title: str, link: str) -> str:

@@ -17,4 +17,4 @@ ADD . .
 RUN pip install .
 
 EXPOSE 8001
-CMD ["/bin/bash", "-c", "pagehub init;pagehub server"]
+CMD ["/bin/bash", "-c", "pagesaver init;pagesaver server"]

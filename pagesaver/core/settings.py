@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "pagehub.record",
-    "pagehub.authorization",
+    "pagesaver.record",
+    "pagesaver.authorization",
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'pagehub.core.urls'
+ROOT_URLCONF = 'pagesaver.core.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'pagehub.core.wsgi.application'
+WSGI_APPLICATION = 'pagesaver.core.wsgi.application'
 
 
 # Database

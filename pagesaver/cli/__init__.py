@@ -1,6 +1,6 @@
 import click
 
-from pagehub import __version__
+from pagesaver import __version__
 
 VERSION = rf"""
         ____                  _       _   _       _

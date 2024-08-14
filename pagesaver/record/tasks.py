@@ -1,14 +1,14 @@
 from pathlib import Path
 from typing import Optional
 
-from pagehub.constants import SUPPORT_FORMATS
-from pagehub.enums import ExportFormat
-from pagehub.record.models import Snapshot, SnapshotResult
-from pagehub.settings import pagehub_settings
-from pagehub.utils import export_utils, notion_utils
-from pagehub.utils.datetime_utils import get_now_str
+from pagesaver.constants import SUPPORT_FORMATS
+from pagesaver.enums import ExportFormat
+from pagesaver.record.models import Snapshot, SnapshotResult
+from pagesaver.settings import pagesaver_settings
+from pagesaver.utils import export_utils, notion_utils
+from pagesaver.utils.datetime_utils import get_now_str
 
-STORAGE = pagehub_settings.STORAGE
+STORAGE = pagesaver_settings.STORAGE
 
 
 def export_task(snapshot_id: int, url: str, format: list[str]):
@@ -64,7 +64,7 @@ def notion_push_task(
 if __name__ == "__main__":
     import os
 
-    from pagehub.record.models import Snapshot
+    from pagesaver.record.models import Snapshot
 
     url = "https://www.baidu.com"
     snapshot = Snapshot.objects.create(url=url)

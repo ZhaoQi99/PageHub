@@ -2,7 +2,7 @@ import mimetypes
 import os
 from pathlib import Path
 
-from pagehub.lib.base.client import RequestsBaseClient
+from pagesaver.lib.base.client import RequestsBaseClient
 
 API_BASE_URL = "https://api.notion.com/v1/"
 UNOFFICIAL_BASE_URL = "https://www.notion.so/api/v3/"
