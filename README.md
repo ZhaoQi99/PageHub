@@ -1,5 +1,5 @@
 # PageSaver 
-[![Python version](https://img.shields.io/pypi/pyversions/pagesaver.svg?logo=python)](https://pypi.python.org/pypi/pagesaver)
+![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FZhaoQi99%2FPageSaver%2Fmain%2Fpyproject.toml)
 [![PyPI package](https://img.shields.io/pypi/v/pagesaver.svg)](https://pypi.python.org/pypi/pagesaver)
 [![PyPI download](https://img.shields.io/pypi/dm/pagesaver.svg)](https://pypi.python.org/pypi/pagesaver)
 [![GitHub](https://img.shields.io/github/license/ZhaoQi99/pagesaver)](https://github.com/ZhaoQi99/pagesaver/blob/main/LICENSE)

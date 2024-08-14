@@ -3,3 +3,61 @@ requires = [
     "setuptools >= 42",
 ]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pagesaver"
+authors = [{name = "Qi Zhao", email = "zhaoqi99@outlook.com"}]
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+description = "Archive your web page."
+keywords = ["archiving", "web archiving", "playwright", "backup"]
+requires-python = ">=3.8"
+dependencies = [
+    "django",
+    "django-ninja",
+    "click",
+    "requests",
+    "hypercorn",
+    "playwright",
+]
+readme = "README.md"
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/ZhaoQi99/PageSaver"
+Changelog = "https://github.com/ZhaoQi99/PageSaver/releases"
+Source = "https://github.com/ZhaoQi99/PageSaver"
+"Issue Tracker" = "https://github.com/ZhaoQi99/PageSaver/issues"
+# "Documentation" = "https://github.com/ZhaoQi99/PageSaver"
+# "Trove classifiers" for PyPI (https://pypi.org/classifiers/).
+
+[project.scripts]
+pagesaver = "pagesaver.cli:main"
+
+[tool.setuptools]
+license-files = ["LICENSE"]
+include-package-data = false
+
+[tool.setuptools.dynamic]
+version = {attr = "pagesaver.__version__"}
+
+[tool.setuptools.packages.find]
+exclude = [
+    "tests",
+    "*.tests.*",
+]
+namespaces = false
+
+[tool.black]
+line-length = "88"
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = "88"
+extend-ignore = "E203,E701,E501"
