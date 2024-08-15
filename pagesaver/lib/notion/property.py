@@ -70,12 +70,9 @@ class Files(ChildrenMixin, Property):
 
 
 if __name__ == "__main__":
-    print(Url(url="https://www.notion.so").to_dict())
+    url = "https://www.notion.so"
+    print(Url(url=url).to_dict())
     print(Text(content="hello").to_dict())
     print(Title(children=[Text(content="hello")]).to_dict())
-    print(Files(children=[File(name="hello", url="https://www.notion.so")]).to_dict())
-    print(
-        Files(
-            children=[NotionHostedFile(name="hello", url="https://www.notion.so")]
-        ).to_dict()
-    )
+    print(Files(children=[File(name="hello", url=url)]).to_dict())
+    print(Files(children=[NotionHostedFile(name="hello", url=url)]).to_dict())

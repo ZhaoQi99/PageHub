@@ -18,7 +18,7 @@ VERSION = rf"""
 @click.version_option(__version__, "-V", "--version", message=VERSION)
 @click.help_option("-h", "--help")
 def main():
-    pass
+    """PageSaver CLI"""
 
 
 from .export import export_command

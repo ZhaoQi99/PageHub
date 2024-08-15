@@ -11,15 +11,16 @@ from pagesaver.utils.datetime_utils import get_now_str
 STORAGE = pagesaver_settings.STORAGE
 
 
-def export_task(snapshot_id: int, url: str, format: list[str]):
+def export_task(snapshot_id: int, url: str, formats: list[str]):
     snapshot = Snapshot.objects.get(pk=snapshot_id)
 
-    format = None or SUPPORT_FORMATS
+    if not formats:
+        formats = SUPPORT_FORMATS
     base_directory = Path(STORAGE["path"]).absolute()
     directory = base_directory / str(snapshot.uuid) / get_now_str()
 
     path_lst, info = export_utils.export(
-        url, directory, [ExportFormat(i) for i in format]
+        url, directory, [ExportFormat(i) for i in formats]
     )
     for item in path_lst:
         path = str(Path(item["path"]).relative_to(base_directory))
