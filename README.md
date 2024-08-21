@@ -9,6 +9,7 @@ Archive your web page.
 
 ## Requirements
 * Python >= 3.8
+* [Playwright](https://playwright.dev/python/docs/intro)
 
 ## Install
 <details open>
@@ -16,6 +17,7 @@ Archive your web page.
 
 ```shell
 pip install pagesaver
+playwright install --with-deps
 ✨🍰✨
 ```
 Or you can use `pip install git+https://github.com/ZhaoQi99/PageSaver.git
@@ -66,12 +68,6 @@ Using the Authorization header, format is: `Authorization: <API_TOKEN>`
 * Database ID: https://www.notion.so/{USERNAME}/{DATABASE_ID}
 * Connection with: Notion ->Top right corner -> More -> Connections -> Connect to -> Your Integration
 
-### Automations
-<a href="https://www.icloud.com/shortcuts/2917f0c4c8a94654978d6b70cb5d84c0">
-  <img src="https://help.apple.com/assets/645D5D228BE0233D28263F4B/645D5D258BE0233D28263F5A/zh_CN/d230a25cb974f8908871af04caad89a1.png" height="50" alt="IOS Shortcut" />
-</a>
-
-
 #### Query Params
 
 | Parameter    | Type   | Required | Description                                                                                    |
@@ -81,6 +77,11 @@ Using the Authorization header, format is: `Authorization: <API_TOKEN>`
 | database_id* | string | Yes      | Notion Database ID                                                                             |
 | title        | string | No       | Title stored in Notion.                                                                        |
 | token_v2     | string | No       | Obtained from Browser->Cookies->token_v2.To store files in Notion, this parameter is required. |
+
+### Automations
+<a href="https://www.icloud.com/shortcuts/2917f0c4c8a94654978d6b70cb5d84c0">
+  <img src="https://help.apple.com/assets/645D5D228BE0233D28263F4B/645D5D258BE0233D28263F5A/zh_CN/d230a25cb974f8908871af04caad89a1.png" height="50" alt="IOS Shortcut" />
+</a>
 
 ## CLI Usage
 ### Export
